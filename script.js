@@ -111,10 +111,12 @@ var a;
 function show_hide() {
     if(a==0) {
         document.getElementById("library-form").style.display="none";
+        document.getElementById("library-form").style.maxWidth="600px";
         return a=1;
     }
     else {
         document.getElementById("library-form").style.display="inline";
+        document.getElementById("library-form").style.maxWidth="600px";
         return a=0;
     }
 }
