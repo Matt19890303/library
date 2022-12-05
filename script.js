@@ -1,4 +1,13 @@
 
+function styling() {
+    document.getElementById("action-btns").style.display="flex";
+    document.getElementById("action-btns").style.justifyContent="flex-end";
+    document.getElementById("action-btns").style.gap="10px";
+}
+
+styling();
+
+
 var selectedRow = null;
 
 // Show Alerts
@@ -27,7 +36,6 @@ function clearAllFields() {
 
 
 
-
 // Add Data
 document.querySelector('#library-form').addEventListener("submit", (e) => {
     e.preventDefault();
@@ -38,8 +46,9 @@ document.querySelector('#library-form').addEventListener("submit", (e) => {
     const pages = document.querySelector("#pages").value;
     const read = document.querySelector("#read").value;
 
+
     // Validate
-    if (title == '' || author == '' || pages == '' || read == '') {
+    if (title == '' || author == '' || pages == '') {
         showAlert("Please fill in all fields", "danger");
     }
     else {
@@ -47,16 +56,19 @@ document.querySelector('#library-form').addEventListener("submit", (e) => {
             const list = document.querySelector("#book-list");
             const row = document.createElement("tr");
 
+ 
             row.innerHTML = `
                 <td>${title}</td>
                 <td>${author}</td>
                 <td>${pages}</td>
                 <td>${read}</td>
-                <td>
+                <td style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <a href="#" class="btn btn-success btn-sm toggle"}>Toggle Read Status</a>
                     <a href="#" class="btn btn-warning btn-sm edit">Edit</a>
-                    <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                    <a href="#" class="btn btn-danger btn-sm delete">Remove</a>
                 </td>
                 `;
+                
             list.appendChild(row);
             selectedRow = null;
             showAlert("Book Added", "success");
@@ -69,12 +81,10 @@ document.querySelector('#library-form').addEventListener("submit", (e) => {
             selectedRow = null;
             showAlert("Book Edited", "info");
         }
-
         clearAllFields();
         show_hide();
     }
 });
-
 
 
 
@@ -94,7 +104,6 @@ document.querySelector("#book-list").addEventListener("click", (e) => {
 });
 
 
-
 // Delete Data
 
 document.querySelector('#book-list').addEventListener("click", (ev) => {
@@ -104,6 +113,9 @@ document.querySelector('#book-list').addEventListener("click", (ev) => {
         showAlert("Book Removed", "danger");
     }
 });
+
+
+
 
 
 //hidden form //
@@ -120,3 +132,10 @@ function show_hide() {
         return a=0;
     }
 }
+
+
+
+
+
+
+

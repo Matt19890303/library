@@ -36,12 +36,17 @@
                     <label for="pages">Pages</label>
                     <input class="form-control" id="pages" type="number" placeholder="Pages">
                 </div>
-                <div class="col-12 mb-3">
-                    <label for="read">Read</label>
-                    <input class="form-control" id="read" type="text" placeholder="Read">
+                <div class="col-12 mt-4">
+                    <label for="read">have you read the book? </label>
+                    <!-- <input id="read" type="checkbox"> -->
+                    <select id="read" name="Read">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
                 </div>
-                <div class="col-12">
-                    <input class="btn btn-success add-btn" type="submit" value="Submit" >
+                <div class="col-12 mt-5" style="display:flex; justify-content: space-between;">
+                    <input class="btn btn-success add-btn" type="submit" value="Submit">
+                    <button type="button" class="close" STYLE="border: solid rgb(228, 140, 140); max-width:fit-content; font-size: 16px; font-weight: 400; border-radius: 15%" aria-label="Close"><span aria-hidden="true" onclick="show_hide(), clearAllFields()">Cancel</span></button>
                 </div>
             </form>
 
@@ -49,7 +54,7 @@
                 <h5 class="display-8"><strong>List of Books</strong></h5>
             </div>
             <div class="col-8">
-                <table class="table table-striped table-dark" STYLE="font-size: 18px; font-weight: 400">
+                <table class="table table-dark" STYLE="font-size: 18px; font-weight: 400;">
                     <thead>
                         <tr>
                             <th>Title</th>
@@ -64,10 +69,12 @@
                             <td>Harry Potter</td>
                             <td>JK Rowling</td>
                             <td>505</td>
-                            <td>No</td>
-                            <td>
+                            <td>Yes</td>
+                            <!-- <td id="action-btns" style="display: flex; justify-content: flex-end; gap: 10px;"> -->
+                            <td id="action-btns">
+                                <a href="#" class="btn btn-success btn-sm toggle" id="toggle-Btn">Toggle Read Status</a>
                                 <a href="#" class="btn btn-warning btn-sm edit">Edit</a>
-                                <a href="#" class="btn btn-danger btn-sm delete">Delete</a>
+                                <a href="#" class="btn btn-danger btn-sm delete">Remove</a>
                             </td>
                         </tr>
                      </tbody>
