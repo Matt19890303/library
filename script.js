@@ -61,7 +61,7 @@ document.querySelector('#library-form').addEventListener("submit", (e) => {
                 <td>${title}</td>
                 <td>${author}</td>
                 <td>${pages}</td>
-                <td>${read}</td>
+                <td>${read === "Yes" ? "Yes" : "No"}</td>
                 <td style="display: flex; justify-content: flex-end; gap: 10px;">
                     <a href="#" class="btn btn-success btn-sm toggle"}>Toggle Read Status</a>
                     <a href="#" class="btn btn-warning btn-sm edit">Edit</a>
@@ -111,6 +111,21 @@ document.querySelector('#book-list').addEventListener("click", (ev) => {
     if(target.classList.contains("delete")) {
         target.parentElement.parentElement.remove();
         showAlert("Book Removed", "danger");
+    }
+});
+
+
+//  Toggle if read or not
+
+document.querySelector('#book-list').addEventListener("click", (ev) => {
+    target = ev.target;
+    if(target.classList.contains("toggle")) {
+        // Get the cell containing the read status
+        const readStatus = target.parentElement.parentElement.children[3];
+        // Get the current read status text
+        const currentStatus = readStatus.textContent;
+        
+        readStatus.textContent = currentStatus === "Yes" ? "No" : "Yes";
     }
 });
 
